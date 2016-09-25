@@ -54,9 +54,8 @@ class Pokedex extends Component {
 
   render() {
     return (
-      <Grid fluid={true} className="pokedex">
-        <div className="pokedex__outer"></div>
-        <Row className="pokedex__screen">
+      <Grid fluid={true} className="pokedex-screen">
+        <Row>
           {this.state.pokemons.map((poke) => (
             <Col xs={6} sm={4} md={3} lg={2} className="no-padding" key={poke.name}>
               <Pokemon
