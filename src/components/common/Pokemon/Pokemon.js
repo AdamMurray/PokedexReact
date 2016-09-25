@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import pokemonService from '../../../services/pokemonService';
+import './Pokemon.css';
 
 class Pokemon extends Component {
 
@@ -26,8 +27,12 @@ class Pokemon extends Component {
 
   render() {
     return (
-      <div>
-        <img src={this.state.pokemon.image} alt={this.state.pokemon.name} />
+      <div className="pokemon">
+        <img
+          className="pokemon__image"
+          src={this.state.pokemon.image}
+          alt={this.state.pokemon.name}
+        />
       </div>
     );
   }

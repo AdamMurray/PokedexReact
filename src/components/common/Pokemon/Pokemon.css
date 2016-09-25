@@ -1,0 +1,11 @@
+
+.pokemon {
+  filter: grayscale(100%);
+  transition-duration: .4s;
+  text-align: center;
+  background: linear-gradient(125deg, #fff, #cecece);
+}
+
+.pokemon:hover {
+  filter: grayscale(0%);
+}
