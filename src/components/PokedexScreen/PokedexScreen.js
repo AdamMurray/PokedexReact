@@ -16,7 +16,7 @@ class PokedexScreen extends Component {
       <Row className="PokedexScreen" style={screenStyle}>
         <Col xs={12} className="PokedexScreen-inner">
           <Row className="PokedexScreen-screen">
-            <Col xs={12}>
+            <Col xs={12} className="PokedexScreen-screen-inner">
               <PokemonViewer />
               <Pokemon />
             </Col>
