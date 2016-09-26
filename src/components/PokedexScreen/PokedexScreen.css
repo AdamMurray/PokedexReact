@@ -1,8 +1,8 @@
 
 .PokedexScreen {
   background-color: #DC0A2D;
-  height: 400px;
-  padding: 25px;
+  /*height: 400px;*/
+  padding: 45px 30px;
 }
 
 .PokedexScreen-inner {
@@ -10,7 +10,7 @@
   border-radius: 10px;
   height: 100%;
   border: 20px solid #DEDEDE;
-  box-shadow: 0 2px 0px 2px #88061B;
+  box-shadow: 0 2px 0px 5px #9a9a9a;
 }
 
 .PokedexScreen-screen {

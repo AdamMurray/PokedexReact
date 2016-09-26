@@ -4,7 +4,7 @@
   height: 80px;
   background-color: #DC0A2D;
   padding: 10px;
-  box-shadow: 0 0 0px 6px #88061B;
+  box-shadow: 0 0 0px 10px #88061B;
   border-bottom: 1px solid black;
 }
 
@@ -12,7 +12,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: lightblue;
+  background-color: #196A9E;
   padding: 8px;
   box-shadow: 0px 2px 0px 2px #88061b;
   border: 3px solid white;
@@ -23,4 +23,5 @@
   height: 20px;
   border-radius: 50%;
   background-color: white;
+  box-shadow: 0 0 0 5px #28AAFD;
 }
