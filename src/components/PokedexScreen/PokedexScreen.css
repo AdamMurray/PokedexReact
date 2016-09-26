@@ -1,0 +1,19 @@
+
+.PokedexScreen {
+  background-color: #DC0A2D;
+  height: 400px;
+  padding: 25px;
+}
+
+.PokedexScreen-inner {
+  background: linear-gradient(125deg, white, #aaa);
+  border-radius: 10px;
+  height: 100%;
+  border: 20px solid #DEDEDE;
+  box-shadow: 0 2px 0px 2px #88061B;
+}
+
+.PokedexScreen-screen {
+  height: 100%;
+  border: 2px solid #0c0c0c;
+}
