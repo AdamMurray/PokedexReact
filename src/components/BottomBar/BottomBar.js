@@ -39,7 +39,7 @@ class BottomBar extends Component {
           />
           <Button onClick={this.searchPokemon}>{'GO'}</Button>
         </Col> */}
-        <Col xs={7} className="BottomBar-buttons">
+        <Col xs={12} className="BottomBar-buttons">
           <Button onClick={this.props.goToStart}>{'<<'}</Button>
           <Button onClick={this.props.decrement}>{'<'}</Button>
           <Button onClick={this.props.increment}>{'>'}</Button>
