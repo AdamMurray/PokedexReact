@@ -3,6 +3,7 @@
   height: 80px;
   /*background: #88061B;*/
   background: #000;
+  background: linear-gradient(125deg, #444, #000);
   color: white;
   display: flex;
   align-items: center;

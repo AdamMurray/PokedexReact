@@ -56,7 +56,7 @@ class Pokemon extends Component {
   }
 
   componentDidMount() {
-    var num = localStorage['currentPokemon'] || 1;
+    var num = localStorage['currentPokemon'] || this.props.pokemonNumber;
     this.getPokemon(num);
   }
 

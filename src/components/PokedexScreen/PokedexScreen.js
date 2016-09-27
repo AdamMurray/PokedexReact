@@ -13,7 +13,7 @@ class PokedexScreen extends Component {
     this.state = {
       pokemons: [],
       viewerPokemons: [],
-      currentPokemonNumber: 1
+      currentPokemonNumber: localStorage['currentPokemon'] || 1
     };
 
     this.incrementCurrentPokemon = this.incrementCurrentPokemon.bind(this);
@@ -46,7 +46,7 @@ class PokedexScreen extends Component {
   goToEnd() {
     console.log('Go to end');
     this.setState({
-      currentPokemonNumber: 150
+      currentPokemonNumber: 649
     });
   }
 
