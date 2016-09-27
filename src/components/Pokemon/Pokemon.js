@@ -32,22 +32,32 @@ class Pokemon extends Component {
         return t.slot === 1;
       });
 
-      console.log('Primary type:', primaryType);
-
       this.setState({
         pokemon: data,
         primaryPokemonType: primaryType[0].type.name
       });
+      localStorage['currentPokemon'] = num;
       console.log('Pokemon:', data);
     });
   }
 
   componentWillReceiveProps() {
+    this.setState({
+      pokemon: {
+        id: '0',
+        name: 'Loading...',
+        sprites: {
+          front_default: '',
+          back_default: ''
+        }
+      }
+    });
     this.getPokemon(this.props.pokemonNumber);
   }
 
   componentDidMount() {
-    this.getPokemon();
+    var num = localStorage['currentPokemon'] || 1;
+    this.getPokemon(num);
   }
 
   padLeft(num) {
