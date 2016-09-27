@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import './Pokemon.css';
 import pokemonService from '../../services/pokemonService';
+import pokemonConfig from '../../config/pokemonConfig';
 
 class Pokemon extends Component {
 
@@ -21,10 +22,11 @@ class Pokemon extends Component {
 
     this.padLeft = this.padLeft.bind(this);
     this.getPokemon = this.getPokemon.bind(this);
+    this.getPrimaryTypeColour = this.getPrimaryTypeColour.bind(this);
   }
 
-  getPokemon() {
-    pokemonService.getPokemonByNumber(this.props.pokemonNumber).then(data => {
+  getPokemon(num) {
+    pokemonService.getPokemonByNumber(num).then(data => {
       var primaryType = data.types.filter((t) => {
         return t.slot === 1;
       });
@@ -40,17 +42,21 @@ class Pokemon extends Component {
   }
 
   componentWillReceiveProps() {
-    this.getPokemon();
+    this.getPokemon(this.props.pokemonNumber);
   }
 
   componentDidMount() {
-    this.getPokemon();
+    // this.getPokemon();
   }
 
   padLeft(num) {
     var str = "" + num;
     var pad = "000";
     return pad.substring(0, pad.length - str.length) + str;
+  }
+
+  getPrimaryTypeColour(primaryType) {
+    return pokemonConfig.typeColours[primaryType];
   }
 
   render() {
@@ -76,28 +82,12 @@ class Pokemon extends Component {
     if (this.state.pokemon) {
       var frontImage = <img src={this.state.pokemon.sprites.front_default} alt={this.state.pokemon.name} />;
       var backImage = <img src={this.state.pokemon.sprites.back_default} alt={this.state.pokemon.name} />;
-      var name = <div>{this.state.pokemon.name} #{this.padLeft(this.state.pokemon.id)}</div>
+      var name = <div>{this.state.pokemon.name} #{this.padLeft(this.state.pokemon.id) }</div>
     }
 
     if (this.state.primaryPokemonType) {
       const baseBoxShadow = '4px 4px 0 1px';
-      var boxShadowColour = null;
-
-      switch (this.state.primaryPokemonType) {
-        case 'water':
-          boxShadowColour = '#28aafd';
-          break;
-        case 'grass':
-          boxShadowColour = 'rgb(155, 205, 61)';
-          break;
-        case 'fire':
-          boxShadowColour = 'rgb(241, 133, 41)';
-          break;
-        default:
-          boxShadowColour = '#aaa';
-          break;
-      }
-
+      var boxShadowColour = this.getPrimaryTypeColour(this.state.primaryPokemonType);
       nameStyle.boxShadow = `${baseBoxShadow} ${boxShadowColour}`;
     }
 

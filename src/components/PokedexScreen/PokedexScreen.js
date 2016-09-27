@@ -6,12 +6,6 @@ import Pokemon from '../Pokemon/Pokemon';
 import BottomBar from '../BottomBar/BottomBar';
 import pokemonService from '../../services/pokemonService';
 
-// The screen height is the height of the window minus the TopBar height
-const screenHeight = window.innerHeight - 80 - 80;
-const screenStyle = {
-  height: screenHeight
-};
-
 class PokedexScreen extends Component {
 
   constructor(props) {
@@ -22,19 +16,12 @@ class PokedexScreen extends Component {
       currentPokemonNumber: 1
     };
 
-    this.loadPokemon = this.loadPokemon.bind(this);
     this.incrementCurrentPokemon = this.incrementCurrentPokemon.bind(this);
     this.decrementCurrentPokemon = this.decrementCurrentPokemon.bind(this);
-  }
-
-  loadPokemon() {
-    pokemonService.getPokemon().then(data => {
-      this.setState({
-        pokemons: data.results,
-        viewerPokemons: data.results.slice(this.state.currentPokemonNumber - 2, this.state.currentPokemonNumber + 1)
-      });
-      console.log('Pokemons:', data.results);
-    });
+    this.searchPokemon = this.searchPokemon.bind(this);
+    this.isInt = this.isInt.bind(this);
+    this.goToStart = this.goToStart.bind(this);
+    this.goToEnd = this.goToEnd.bind(this);
   }
 
   incrementCurrentPokemon() {
@@ -49,19 +36,53 @@ class PokedexScreen extends Component {
     });
   }
 
+  goToStart() {
+    console.log('Go to start');
+    this.setState({
+      currentPokemonNumber: 1
+    });
+  }
+
+  goToEnd() {
+    console.log('Go to end');
+    this.setState({
+      currentPokemonNumber: 150
+    });
+  }
+
+  isInt(n) {
+    return Number(n) === n && n % 1 === 0;
+  }
+
+  searchPokemon(searchString) {
+    console.log('Search for:', searchString);
+    if (this.isInt(parseInt(searchString))) {
+      console.log('Search number');
+      this.setState({
+        currentPokemonNumber: parseInt(searchString)
+      });
+    }
+  }
+
   componentDidMount() {
     // -- load pokemon here
-    this.loadPokemon();
+    // this.loadPokemon();
   }
 
   render() {
+    // The screen height is the height of the window minus the TopBar height
+    const screenHeight = window.innerHeight - 80 - 80;
+    const screenStyle = {
+      height: screenHeight
+    };
+
     return (
       <div>
         <Row className="PokedexScreen" style={screenStyle}>
           <Col xs={12} className="PokedexScreen-inner">
             <Row className="PokedexScreen-screen">
               <Col xs={12} className="PokedexScreen-screen-inner">
-                <PokemonViewer pokemons={this.state.viewerPokemons} />
+                {/* <PokemonViewer pokemons={this.state.viewerPokemons} /> */}
                 <Pokemon pokemonNumber={this.state.currentPokemonNumber} />
               </Col>
             </Row>
@@ -70,7 +91,10 @@ class PokedexScreen extends Component {
         <BottomBar
           increment={this.incrementCurrentPokemon}
           decrement={this.decrementCurrentPokemon}
-        />
+          goToStart={this.goToStart}
+          goToEnd={this.goToEnd}
+          searchPokemon={this.searchPokemon}
+          />
       </div>
     );
   }

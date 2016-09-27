@@ -1,6 +1,6 @@
 
 .Pokemon {
-  height: 70%;
+  height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
   padding: 1.3em;

@@ -29,10 +29,10 @@
 
 .btn {
   border-radius: 0 !important;
-  background: #dedede !important;
   color: black !important;
   border: 2px solid black !important;
   font-size: 1.4em !important;
+  outline: none !important;
 }
 
 .align--center {
