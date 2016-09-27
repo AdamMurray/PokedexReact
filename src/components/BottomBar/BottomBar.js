@@ -30,7 +30,7 @@ class BottomBar extends Component {
   render() {
     return (
       <Row className="BottomBar">
-        <Col xs={5} className="BottomBar-input">
+        {/* <Col xs={5} className="BottomBar-input">
           <input
             value={this.state.searchValue}
             placeholder="#"
@@ -38,7 +38,7 @@ class BottomBar extends Component {
             type="number"
           />
           <Button onClick={this.searchPokemon}>{'GO'}</Button>
-        </Col>
+        </Col> */}
         <Col xs={7} className="BottomBar-buttons">
           <Button onClick={this.props.goToStart}>{'<<'}</Button>
           <Button onClick={this.props.decrement}>{'<'}</Button>
