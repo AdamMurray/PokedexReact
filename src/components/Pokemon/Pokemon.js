@@ -26,6 +26,7 @@ class Pokemon extends Component {
   }
 
   getPokemon(num) {
+    num = num || 1;
     pokemonService.getPokemonByNumber(num).then(data => {
       var primaryType = data.types.filter((t) => {
         return t.slot === 1;
@@ -46,7 +47,7 @@ class Pokemon extends Component {
   }
 
   componentDidMount() {
-    // this.getPokemon();
+    this.getPokemon();
   }
 
   padLeft(num) {

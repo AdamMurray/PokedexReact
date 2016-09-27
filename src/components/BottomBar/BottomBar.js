@@ -18,34 +18,30 @@ class BottomBar extends Component {
     this.setState({
       searchValue: e.target.value
     });
-    // this.props.searchPokemon(e.target.value);
   }
 
   searchPokemon() {
+    this.setState({
+      searchValue: ''
+    });
     this.props.searchPokemon(this.state.searchValue);
   }
 
   render() {
     return (
       <Row className="BottomBar">
-        <Col xs={6} className="BottomBar-input">
-          <Row>
-            <Col xs={8}>
-              <input
-                value={this.state.searchValue}
-                placeholder="Search by #"
-                onChange={this.handleSearch}
-              />
-            </Col>
-            <Col xs={4}>
-              <Button onClick={this.searchPokemon}>{'GO'}</Button>
-            </Col>
-          </Row>
+        <Col xs={5} className="BottomBar-input">
+          <input
+            value={this.state.searchValue}
+            placeholder="#"
+            onChange={this.handleSearch}
+          />
+          <Button onClick={this.searchPokemon}>{'GO'}</Button>
         </Col>
-        <Col xs={6} className="BottomBar-buttons">
+        <Col xs={7} className="BottomBar-buttons">
           <Button onClick={this.props.goToStart}>{'<<'}</Button>
           <Button onClick={this.props.decrement}>{'<'}</Button>
-          <Button onClick={this.props.decrement}>{'>'}</Button>
+          <Button onClick={this.props.increment}>{'>'}</Button>
           <Button onClick={this.props.goToEnd}>{'>>'}</Button>
         </Col>
       </Row>
