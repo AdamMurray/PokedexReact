@@ -7,6 +7,7 @@ class Pokemon extends Component {
     return (
       <Row className="Pokemon">
         <Col xs={12}>
+          <img src={this.props.pokemon.image} alt={this.props.pokemon.name} />
         </Col>
       </Row>
     );
