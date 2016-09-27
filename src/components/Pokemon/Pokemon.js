@@ -42,6 +42,7 @@ class Pokemon extends Component {
   }
 
   componentWillReceiveProps() {
+    console.log('Component received props');
     this.setState({
       pokemon: {
         id: '0',
@@ -52,11 +53,14 @@ class Pokemon extends Component {
         }
       }
     });
+    console.log('Pokemon to get (props):', this.props.pokemonNumber);
     this.getPokemon(this.props.pokemonNumber);
   }
 
   componentDidMount() {
-    var num = localStorage['currentPokemon'] || this.props.pokemonNumber;
+    console.log('Component mounted');
+    var num = localStorage['currentPokemon'] ? localStorage['currentPokemon'] : this.props.pokemonNumber;
+    console.log('Pokemon to get (mount):', num);
     this.getPokemon(num);
   }
 

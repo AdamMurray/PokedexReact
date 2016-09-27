@@ -13,7 +13,7 @@ class PokedexScreen extends Component {
     this.state = {
       pokemons: [],
       viewerPokemons: [],
-      currentPokemonNumber: localStorage['currentPokemon'] || 1
+      currentPokemonNumber: localStorage['currentPokemon'] ? localStorage['currentPokemon'] : 1
     };
 
     this.incrementCurrentPokemon = this.incrementCurrentPokemon.bind(this);
@@ -26,13 +26,13 @@ class PokedexScreen extends Component {
 
   incrementCurrentPokemon() {
     this.setState({
-      currentPokemonNumber: this.state.currentPokemonNumber + 1
+      currentPokemonNumber: parseInt(this.state.currentPokemonNumber) + 1
     });
   }
 
   decrementCurrentPokemon() {
     this.setState({
-      currentPokemonNumber: this.state.currentPokemonNumber - 1
+      currentPokemonNumber: parseInt(this.state.currentPokemonNumber) - 1
     });
   }
 
