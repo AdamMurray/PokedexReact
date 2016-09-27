@@ -1,3 +1,4 @@
+npm run build
 rm index.html
 rm -rf static
 cp build/index.html ./
