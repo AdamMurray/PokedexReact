@@ -7,7 +7,6 @@ class BottomBar extends Component {
     return (
       <Row className="BottomBar">
         <Col xs={12}>
-          Bottom Bar
         </Col>
       </Row>
     );

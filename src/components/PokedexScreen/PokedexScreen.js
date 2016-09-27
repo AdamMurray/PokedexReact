@@ -17,29 +17,24 @@ class PokedexScreen extends Component {
     super(props);
     this.state = {
       pokemons: [],
-      currentPokemon: {
-        name: '',
-        image: ''
-      }
+      currentPokemonNumber: 6
     };
 
     this.loadPokemon = this.loadPokemon.bind(this);
   }
 
-  loadPokemon(num) {
-    pokemonService.getPokemonByNumber(num).then(data => {
+  loadPokemon() {
+    pokemonService.getPokemon().then(data => {
       this.setState({
-        currentPokemon: {
-          name: data.name,
-          image: data.sprites.front_default
-        }
+        pokemons: data.results
       });
+      console.log('Pokemons:', data.results);
     });
   }
 
   componentDidMount() {
     // -- load pokemon here
-    this.loadPokemon(1);
+    this.loadPokemon();
   }
 
   render() {
@@ -49,7 +44,7 @@ class PokedexScreen extends Component {
           <Row className="PokedexScreen-screen">
             <Col xs={12} className="PokedexScreen-screen-inner">
               <PokemonViewer pokemons={this.state.pokemons} />
-              <Pokemon pokemon={this.state.currentPokemon} />
+              <Pokemon pokemonNumber={this.state.currentPokemonNumber} />
             </Col>
           </Row>
         </Col>

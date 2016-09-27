@@ -2,6 +2,6 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'VT323', sans-serif !important;
   font-size: 16px;
 }
