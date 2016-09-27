@@ -35,6 +35,7 @@ class BottomBar extends Component {
             value={this.state.searchValue}
             placeholder="#"
             onChange={this.handleSearch}
+            type="number"
           />
           <Button onClick={this.searchPokemon}>{'GO'}</Button>
         </Col>
