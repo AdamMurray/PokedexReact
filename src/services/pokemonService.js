@@ -1,5 +1,5 @@
 
-const ROOT_URL = 'http://pokeapi.co/api/v2/pokemon/';
+const ROOT_URL = 'https://pokeapi.co/api/v2/pokemon/';
 
 export default {
   getPokemonByName(name) {
