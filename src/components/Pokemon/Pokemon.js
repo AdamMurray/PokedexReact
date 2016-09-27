@@ -20,9 +20,10 @@ class Pokemon extends Component {
     };
 
     this.padLeft = this.padLeft.bind(this);
+    this.getPokemon = this.getPokemon.bind(this);
   }
 
-  componentDidMount() {
+  getPokemon() {
     pokemonService.getPokemonByNumber(this.props.pokemonNumber).then(data => {
       var primaryType = data.types.filter((t) => {
         return t.slot === 1;
@@ -36,6 +37,14 @@ class Pokemon extends Component {
       });
       console.log('Pokemon:', data);
     });
+  }
+
+  componentWillReceiveProps() {
+    this.getPokemon();
+  }
+
+  componentDidMount() {
+    this.getPokemon();
   }
 
   padLeft(num) {

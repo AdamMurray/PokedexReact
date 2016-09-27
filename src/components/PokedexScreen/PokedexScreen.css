@@ -30,5 +30,5 @@
   display: block;
   height: 100%;
   width: 100%;
-  background: linear-gradient(125deg, white, rgba(0, 44, 132, 0.3));
+  background: linear-gradient(125deg, white, rgba(0, 44, 132, 0.3), white);
 }
