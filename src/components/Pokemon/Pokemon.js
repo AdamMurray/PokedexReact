@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import './Pokemon.css';
 import pokemonService from '../../services/pokemonService';
 import pokemonConfig from '../../config/pokemonConfig';
+import utils from '../../utils/utils';
 
 class Pokemon extends Component {
 
@@ -20,7 +21,7 @@ class Pokemon extends Component {
       primaryPokemonType: null
     };
 
-    this.padLeft = this.padLeft.bind(this);
+    // this.padLeft = this.padLeft.bind(this);
     this.getPokemon = this.getPokemon.bind(this);
     this.getPrimaryTypeColour = this.getPrimaryTypeColour.bind(this);
   }
@@ -64,12 +65,6 @@ class Pokemon extends Component {
     this.getPokemon(num);
   }
 
-  padLeft(num) {
-    var str = "" + num;
-    var pad = "000";
-    return pad.substring(0, pad.length - str.length) + str;
-  }
-
   getPrimaryTypeColour(primaryType) {
     return pokemonConfig.typeColours[primaryType];
   }
@@ -97,7 +92,7 @@ class Pokemon extends Component {
     if (this.state.pokemon) {
       var frontImage = <img src={this.state.pokemon.sprites.front_default} alt={this.state.pokemon.name} />;
       var backImage = <img src={this.state.pokemon.sprites.back_default} alt={this.state.pokemon.name} />;
-      var name = <div>{this.state.pokemon.name} #{this.padLeft(this.state.pokemon.id) }</div>
+      var name = <div>{this.state.pokemon.name} #{utils.padLeft(this.state.pokemon.id) }</div>
     }
 
     if (this.state.primaryPokemonType) {
