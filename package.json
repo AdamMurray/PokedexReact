@@ -7,9 +7,9 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "react": "^15.3.2",
+    "react": "^16.5.0",
     "react-bootstrap": "^0.30.3",
-    "react-dom": "^15.3.2",
+    "react-dom": "^16.5.0",
     "react-router": "^2.8.1"
   },
   "scripts": {
